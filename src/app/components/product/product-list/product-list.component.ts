@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { productTitles1 } from 'src/app/Constants';
 import { ProductService } from 'src/app/services';
 
 @Component({
@@ -9,17 +10,17 @@ import { ProductService } from 'src/app/services';
 export class ProductListComponent{
 
   products: any;
-  titles: string[] = ["Brand","Name","Description","Price","Category","Size","Color","Quantity"];
+  titles: string[] = productTitles1;
 
-  constructor(private product: ProductService) {
+  constructor(private productService: ProductService) {
     this.get();
   }
 
   get(){
-    this.product.getProducts().subscribe(data => this.products = data);
+    this.productService.getProducts().subscribe(data => this.products = data);
   }
   delete(id:number){
-    this.product.deleteProduct(id).subscribe();
+    this.productService.deleteProduct(id).subscribe();
     location.reload();
   }
 }

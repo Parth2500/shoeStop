@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { userTitles } from 'src/app/Constants';
 import { UserService } from 'src/app/services';
 
 @Component({
@@ -9,14 +10,18 @@ import { UserService } from 'src/app/services';
 export class UserListComponent {
 
   users: any;
-  titles: string[] = ["Name","Email","Mobile Number","Primary Address"]
+  titles: string[] = userTitles;
 
-  constructor(private user: UserService) { 
+  constructor(private userService: UserService) { 
     this.get();
   }
 
   get(){
-    this.user.getUsers().subscribe(data => this.users = data);
+    this.userService.getUsers().subscribe(data => this.users = data);
+  }
+  delete(id:number){
+    this.userService.deleteUser(id).subscribe();
+    location.reload();
   }
 
 }

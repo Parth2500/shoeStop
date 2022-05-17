@@ -14,9 +14,7 @@ export class OrderListComponent{
   status: string[] = status;
   jsonString: string = "";
   
-  
-
-  constructor(private order:OrderService) {
+  constructor(private orderService:OrderService) {
     this.get();
   }
 
@@ -34,11 +32,15 @@ export class OrderListComponent{
   }
 
   get(){
-    this.order.getOrders().subscribe(data => this.orders = data);
+    this.orderService.getOrders().subscribe(data => this.orders = data);
+  }
+  delete(id:number){
+    this.orderService.deleteOrder(id).subscribe();
+    location.reload();
   }
   put(id:string,userId:string,productId:string,quantity:string,addressId:string,status:string,createdDate:string,deliveredDate:string){
     this.jsonString = '{"id": '+id+',"userId":'+userId+',"productId":'+productId+',"quantity":'+quantity+',"addressId":'+addressId+',"status":"'+status+'","createdDate":"'+createdDate+'","deliveredDate":"'+deliveredDate+'"}';
-    this.order.updateOrder(Number.parseInt(id),this.jsonString).subscribe();
+    this.orderService.updateOrder(Number.parseInt(id),this.jsonString).subscribe();
     location.reload();
   }
 

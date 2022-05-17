@@ -1,0 +1,25 @@
+<div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col w-full mx-auto mb-4">
+    <h2 class="text-gray-900 text-2xl font-medium title-font">Edit</h2>
+    <hr class="mb-5">
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[0]}}</label>
+        <input #userId type="number" [value]="addressGet.userId" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[1]}}</label>
+        <textarea #address [value]="addressGet.address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[2]}}</label>
+        <input #city type="text" [value]="addressGet.city" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[3]}}</label>
+        <input #state type="text" [value]="addressGet.state" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[4]}}</label>
+        <input #zipcode type="text" [value]="addressGet.zipcode" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <button (click)="put(userId.value,address.value,city.value,state.value,zipcode.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+</div>

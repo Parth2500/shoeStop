@@ -12,12 +12,16 @@ export class AddressListComponent {
   addresses: any;
   titles: string[] = addressTitle;
 
-  constructor(private address: AddressService) { 
+  constructor(private addressService: AddressService) { 
     this.get();
   }
 
   get(){
-    this.address.getAddresses().subscribe(data => this.addresses = data);
+    this.addressService.getAddresses().subscribe(data => this.addresses = data);
+  }
+  delete(id:number){
+    this.addressService.deleteAddress(id).subscribe();
+    location.reload();
   }
 
 }

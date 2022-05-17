@@ -1,0 +1,35 @@
+<div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col w-full mx-auto mb-4">
+    <h2 class="text-gray-900 text-2xl font-medium title-font">Edit</h2>
+    <hr class="mb-5">
+    <div class="relative mb-4">
+      <label class="leading-7 text-sm text-gray-600">{{titles[0]}}</label>
+      <input #userId type="number" [value]="order.userId" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[1]}}</label>
+        <input #productId type="number" [value]="order.productId" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+      <label class="leading-7 text-sm text-gray-600">{{titles[2]}}</label>
+      <input #addressId type="number" [value]="order.addressId" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[3]}}</label>
+        <input #quantity type="number" [value]="order.quantity" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[4]}}</label>
+        <select #status class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <option *ngFor="let s of statuses" [value]="s" [selected]="s == order.status">{{s}}</option>
+        </select>
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[5]}}</label>
+        <input #createdDate type="datetime-local" [value]="order.createdDate" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <div class="relative mb-4">
+        <label class="leading-7 text-sm text-gray-600">{{titles[6]}}</label>
+        <input #deliveredDate type="datetime-local" [value]="order.deliveredDate" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+    </div>
+    <button (click)="put(userId.value,productId.value,addressId.value,quantity.value,status.value,createdDate.value,deliveredDate.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+</div>
