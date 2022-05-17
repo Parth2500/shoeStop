@@ -2,14 +2,14 @@
     <h2 class="text-gray-900 text-2xl font-medium title-font">Create</h2>
     <hr class="mb-5">
     <div class="relative mb-4">
-        <label for="full-name" class="leading-7 text-sm text-gray-600">{{titles[0]}}</label>
+        <label class="leading-7 text-sm text-gray-600">{{titles[0]}}</label>
         <select #brand class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
             <option *ngFor="let brand of brands" [value]="brand">{{brand}}</option>
         </select>
       </div>
     <div class="relative mb-4">
       <label class="leading-7 text-sm text-gray-600">{{titles[1]}}</label>
-      <input #name type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      <input #productName type="text" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
     </div>
     <div class="relative mb-4">
         <label class="leading-7 text-sm text-gray-600">{{titles[2]}}</label>
@@ -41,7 +41,7 @@
     </div>
     <div class="relative mb-4">
         <label class="leading-7 text-sm text-gray-600">{{titles[8]}}</label>
-        <input #image type="url" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        <input #imageUrl type="url" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
     </div>
-    <button (click)="post(brand.value,name.value,description.value,price.value,category.value,size.value,color.value,quantity.value,image.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+    <button (click)="post(brand.value,productName.value,description.value,price.value,category.value,size.value,color.value,quantity.value,imageUrl.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
 </div>

@@ -15,15 +15,15 @@ export class ProductService {
     return this.http.get(this.connect);
   }
   getProductById(id:number){
-    return this.http.get(this.connect+id);
+    return this.http.get(this.connect + id);
   }
   setProduct(a:string){
     return this.http.post(this.connect, JSON.parse(a));
   }
   updateProduct(id:number, a:string){
-    return this.http.put(this.connect+id, JSON.parse(a));
+    return this.http.put(this.connect + id, JSON.parse(a));
   }
   deleteProduct(id:number){
-    return  this.http.delete(this.connect+id);
+    return this.http.delete(this.connect + id);
   }
 }

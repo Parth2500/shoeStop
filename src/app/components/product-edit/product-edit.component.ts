@@ -29,10 +29,10 @@ export class ProductEditComponent{
   get(){
     this.productService.getProductById(this.id).subscribe(data => this.product = data);
   }
-  put(brand:string,name:string,description:string,price:string,category:string,size:string,color:string,quantity:string,image:string){
-    this.jsonString = '{"id": '+this.id+',"brand":"'+brand+'","name":"'+name+'","description":"'+description+'","price":'+price+',"category":"'+category+'","size":'+size+',"color":"'+color+'","quantity":'+quantity+',"image":"'+image+'"}';
+  put(brand:string,productName:string,description:string,price:string,category:string,size:string,color:string,quantity:string,imageUrl:string){
+    this.jsonString = '{"id": '+this.id+',"brand":"'+brand+'","productName":"'+productName+'","description":"'+description+'","price":'+price+',"category":"'+category+'","size":'+size+',"color":"'+color+'","quantity":'+quantity+',"imageUrl":"'+imageUrl+'"}';
     this.productService.updateProduct(this.id,this.jsonString).subscribe();
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => { window.location.reload(); });
   }
 
 }
