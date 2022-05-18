@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { orderTitles, status } from 'src/app/Constants';
+import { orderTitles1, status } from 'src/app/Constants';
 import { OrderService } from 'src/app/services';
 
 @Component({
@@ -10,7 +10,7 @@ import { OrderService } from 'src/app/services';
 export class OrderListComponent{
 
   orders: any;
-  titles: string[] = orderTitles;
+  titles: string[] = orderTitles1;
   status: string[] = status;
   jsonString: string = "";
   

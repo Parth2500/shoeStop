@@ -1,3 +1,4 @@
+
 export { ProductListComponent } from './product/product-list/product-list.component';
 export { ProductCreateComponent } from './product/product-create/product-create.component';
 export { ProductEditComponent } from './product/product-edit/product-edit.component';
@@ -13,3 +14,14 @@ export { UserEditComponent } from './user/user-edit/user-edit.component';
 export { AddressListComponent } from './address/address-list/address-list.component';
 export { AddressCreateComponent } from './address/address-create/address-create.component';
 export { AddressEditComponent } from './address/address-edit/address-edit.component';
+
+
+export { LoginComponent } from './client/login/login.component';
+
+export { AddressPageComponent } from './client/address-page/address-page.component';
+
+export { OrderHistoryComponent } from './client/order-history/order-history.component';
+export { OrderPageComponent } from './client/order-page/order-page.component';
+
+export { ProductPageComponent } from './client/product-page/product-page.component';
+export { ProductsPageComponent } from './client/products-page/products-page.component';

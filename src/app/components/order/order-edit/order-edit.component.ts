@@ -30,7 +30,7 @@ export class OrderEditComponent {
   put(userId:string,productId:string,quantity:string,addressId:string,status:string,createdDate:string,deliveredDate:string){
     this.jsonString = '{"id": '+this.id+',"userId":'+userId+',"productId":'+productId+',"quantity":'+quantity+',"addressId":'+addressId+',"status":"'+status+'","createdDate":"'+createdDate+'","deliveredDate":"'+deliveredDate+'"}';
     this.orderService.updateOrder(this.id,this.jsonString).subscribe();
-    this.router.navigate(['/orders']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/order/']).then(() => { window.location.reload(); });
   }
 
 }

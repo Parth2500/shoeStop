@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { addressTitle } from 'src/app/Constants';
+import { addressTitle1 } from 'src/app/Constants';
 import { AddressService } from 'src/app/services';
 
 @Component({
@@ -10,7 +10,7 @@ import { AddressService } from 'src/app/services';
 export class AddressListComponent {
 
   addresses: any;
-  titles: string[] = addressTitle;
+  titles: string[] = addressTitle1;
 
   constructor(private addressService: AddressService) { 
     this.get();

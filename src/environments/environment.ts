@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  connection_string: "https://localhost:44370/api/"
+  connection_string: "https://localhost:44370/api/",
+  admin_password: "helloWorld"
 };
 
 /*

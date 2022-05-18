@@ -32,7 +32,7 @@ export class ProductEditComponent{
   put(brand:string,productName:string,description:string,price:string,category:string,size:string,color:string,quantity:string,imageUrl:string){
     this.jsonString = '{"id": '+this.id+',"brand":"'+brand+'","productName":"'+productName+'","description":"'+description+'","price":'+price+',"category":"'+category+'","size":'+size+',"color":"'+color+'","quantity":'+quantity+',"imageUrl":"'+imageUrl+'"}';
     this.productService.updateProduct(this.id,this.jsonString).subscribe();
-    this.router.navigate(['/']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/product/']).then(() => { window.location.reload(); });
   }
 
 }

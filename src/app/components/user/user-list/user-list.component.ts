@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { userTitles } from 'src/app/Constants';
+import { userTitles1 } from 'src/app/Constants';
 import { UserService } from 'src/app/services';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services';
 export class UserListComponent {
 
   users: any;
-  titles: string[] = userTitles;
+  titles: string[] = userTitles1;
 
   constructor(private userService: UserService) { 
     this.get();

@@ -22,7 +22,7 @@ export class ProductCreateComponent{
   post(brand:string,productName:string,description:string,price:string,category:string,size:string,color:string,quantity:string,imageUrl:string){
     this.jsonString = '{"brand":"'+brand+'","productName":"'+productName+'","description":"'+description+'","price":'+price+',"category":"'+category+'","size":'+size+',"color":"'+color+'","quantity":'+quantity+',"imageUrl":"'+imageUrl+'"}';
     this.productService.setProduct(this.jsonString).subscribe();
-    this.router.navigate(['/']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/product/']).then(() => { window.location.reload(); });
   }
 
 }

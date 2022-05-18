@@ -36,7 +36,7 @@ export class AddressEditComponent {
   put(userId:string,address:string,city:string,state:string,zipcode:string){
     this.jsonString = '{"id": '+this.id+',"userId":'+userId+',"address":"'+address+'","city":"'+city+'","state":"'+state+'","zipcode":"'+zipcode+'"}';
     this.addressService.updateAddress(this.id,this.jsonString).subscribe();
-    this.router.navigate(['/addresses']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/address/']).then(() => { window.location.reload(); });
   }
 
 }

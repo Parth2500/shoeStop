@@ -19,7 +19,7 @@ export class UserCreateComponent {
   post(name:string,email:string,mobileNumber:string,primaryAddressId:string,password:string){
     this.jsonString = '{"name":"'+name+'","email":"'+email+'","mobileNumber":"'+mobileNumber+'","primaryAddressId":'+primaryAddressId+',"password":"'+password+'"}';
     this.userService.setUser(this.jsonString).subscribe();
-    this.router.navigate(['/users']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/user/']).then(() => { window.location.reload(); });
   }
 
 }

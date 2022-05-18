@@ -29,7 +29,7 @@ export class UserEditComponent {
   put(name:string,email:string,mobileNumber:string,primaryAddressId:string,password:string){
     this.jsonString = '{"id": '+this.id+',"name":"'+name+'","email":"'+email+'","mobileNumber":"'+mobileNumber+'","primaryAddressId":'+primaryAddressId+',"password":"'+password+'"}';
     this.userService.updateUser(this.id,this.jsonString).subscribe();
-    this.router.navigate(['/users']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/user/']).then(() => { window.location.reload(); });
   }
 
 }

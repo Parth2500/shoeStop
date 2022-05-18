@@ -1,30 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AddressListComponent, OrderListComponent, ProductCreateComponent, ProductListComponent, ProductEditComponent, UserListComponent, OrderEditComponent, AddressEditComponent, AddressCreateComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent } from './components';
-import { AddressContainerComponent, OrdersContainerComponent, ProductsContainerComponent, UsersContainerComponent } from './containers';
+import { AddressListComponent, OrderListComponent, ProductCreateComponent, ProductListComponent, ProductEditComponent, UserListComponent, OrderEditComponent, AddressEditComponent, AddressCreateComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent } from './components';
+import { AdminComponent, ClientComponent } from './containers';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: 'products', component: ProductsContainerComponent, children: [
-    { path: '', component: ProductListComponent },
-    { path: 'product/create', component: ProductCreateComponent},
-    { path: 'product/edit/:id', component : ProductEditComponent}
+  { path: '', redirectTo: 'Admin', pathMatch: 'full' },
+  { path: 'Admin', component: AdminComponent, children: [
+    { path: '', redirectTo: 'product', pathMatch: 'full' },
+    { path: 'product', children: [
+      { path: '', component: ProductListComponent },
+      { path: 'create', component: ProductCreateComponent},
+      { path: 'edit/:id', component : ProductEditComponent},
+    ]},
+    { path: 'order', children: [
+      { path: '', component: OrderListComponent },
+      { path: 'create', component: OrderCreateComponent},
+      { path: 'edit/:id', component : OrderEditComponent},
+    ]},
+    { path: 'user', children: [
+      { path: '', component: UserListComponent },
+      { path: 'create', component: UserCreateComponent},
+      { path: 'edit/:id', component : UserEditComponent},
+    ]},
+    { path: 'address', children: [
+      { path: '', component: AddressListComponent },
+      { path: 'create', component: AddressCreateComponent},
+      { path: 'edit/:id', component : AddressEditComponent},
+    ]}
   ] },
-  { path: 'orders', component: OrdersContainerComponent, children: [
-    { path: '', component: OrderListComponent },
-    { path: 'order/create', component: OrderCreateComponent},
-    { path: 'order/edit/:id', component : OrderEditComponent},
-  ] },
-  { path: 'users', component: UsersContainerComponent, children: [
-    { path: '', component: UserListComponent },
-    { path: 'user/create', component: UserCreateComponent},
-    { path: 'user/edit/:id', component : UserEditComponent},
-  ] },
-  { path: 'addresses', component: AddressContainerComponent, children: [
-    { path: '', component: AddressListComponent },
-    { path: 'address/create', component: AddressCreateComponent},
-    { path: 'address/edit/:id', component : AddressEditComponent},
+  { path: 'Home', component: ClientComponent, children: [
+    { path: '', redirectTo: 'products', pathMatch: 'full' },
+    { path: 'products', component: ProductsPageComponent },
+    { path: 'products/:id', component: ProductPageComponent },
   ] },
   { path: '**', redirectTo: 'products' }
 ];

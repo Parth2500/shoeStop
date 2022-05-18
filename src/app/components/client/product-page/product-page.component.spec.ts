@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddressContainerComponent } from './address-container.component';
+import { ProductPageComponent } from './product-page.component';
 
-describe('AddressContainerComponent', () => {
-  let component: AddressContainerComponent;
-  let fixture: ComponentFixture<AddressContainerComponent>;
+describe('ProductPageComponent', () => {
+  let component: ProductPageComponent;
+  let fixture: ComponentFixture<ProductPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddressContainerComponent ]
+      declarations: [ ProductPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddressContainerComponent);
+    fixture = TestBed.createComponent(ProductPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

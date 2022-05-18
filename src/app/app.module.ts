@@ -4,28 +4,32 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OrderListComponent, ProductListComponent, UserListComponent, ProductEditComponent, AddressEditComponent, AddressCreateComponent, OrderEditComponent, ProductCreateComponent, AddressListComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent } from './components';
-import { AddressContainerComponent, OrdersContainerComponent, ProductsContainerComponent, UsersContainerComponent } from './containers';
+import { OrderListComponent, ProductListComponent, UserListComponent, ProductEditComponent, AddressEditComponent, AddressCreateComponent, OrderEditComponent, ProductCreateComponent, AddressListComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent, LoginComponent, OrderPageComponent, AddressPageComponent, OrderHistoryComponent } from './components';
+import { AdminComponent, ClientComponent } from './containers';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsContainerComponent,
-    UsersContainerComponent,
-    OrdersContainerComponent,
     ProductListComponent,
     OrderListComponent,
     UserListComponent,
     ProductEditComponent,
     AddressListComponent,
-    AddressContainerComponent,
     ProductCreateComponent,
     OrderEditComponent,
     AddressCreateComponent,
     AddressEditComponent,
     OrderCreateComponent,
     UserCreateComponent,
-    UserEditComponent
+    UserEditComponent,
+    AdminComponent,
+    ClientComponent,
+    ProductsPageComponent,
+    ProductPageComponent,
+    LoginComponent,
+    OrderPageComponent,
+    AddressPageComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

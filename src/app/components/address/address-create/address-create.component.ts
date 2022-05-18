@@ -18,6 +18,6 @@ export class AddressCreateComponent {
   post(userId:string,address:string,city:string,state:string,zipcode:string){
     this.jsonString = '{"userId":'+userId+',"address":"'+address+'","city":"'+city+'","state":"'+state+'","zipcode":"'+zipcode+'"}';
     this.addressService.setAddress(this.jsonString).subscribe();
-    this.router.navigate(['/addresses']).then(() => { window.location.reload(); });
+    this.router.navigate(['/Admin/address/']).then(() => { window.location.reload(); });
   }
 }
