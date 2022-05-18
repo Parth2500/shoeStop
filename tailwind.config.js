@@ -5,5 +5,6 @@ module.exports = {
   theme: {
     extend: {},
   },
+  dark: 'media',
   plugins: [],
 }

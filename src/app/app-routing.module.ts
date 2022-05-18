@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AddressListComponent, OrderListComponent, ProductCreateComponent, ProductListComponent, ProductEditComponent, UserListComponent, OrderEditComponent, AddressEditComponent, AddressCreateComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent } from './components';
+import { AddressListComponent, OrderListComponent, ProductCreateComponent, ProductListComponent, ProductEditComponent, UserListComponent, OrderEditComponent, AddressEditComponent, AddressCreateComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent, NotFoundComponent, LoginComponent } from './components';
 import { AdminComponent, ClientComponent } from './containers';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'Admin', pathMatch: 'full' },
+  { path: '', redirectTo: 'Home', pathMatch: 'full' },
   { path: 'Admin', component: AdminComponent, children: [
     { path: '', redirectTo: 'product', pathMatch: 'full' },
     { path: 'product', children: [
@@ -33,8 +33,9 @@ const routes: Routes = [
     { path: '', redirectTo: 'products', pathMatch: 'full' },
     { path: 'products', component: ProductsPageComponent },
     { path: 'products/:id', component: ProductPageComponent },
+    { path: 'loginUser', component: LoginComponent },
   ] },
-  { path: '**', redirectTo: 'products' }
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

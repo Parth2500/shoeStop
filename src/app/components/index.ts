@@ -25,3 +25,5 @@ export { OrderPageComponent } from './client/order-page/order-page.component';
 
 export { ProductPageComponent } from './client/product-page/product-page.component';
 export { ProductsPageComponent } from './client/products-page/products-page.component';
+
+export { NotFoundComponent } from './not-found/not-found.component';

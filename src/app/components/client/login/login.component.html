@@ -1,1 +1,46 @@
-<p>login works!</p>
+<section *ngIf="loginToggle" class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col w-full mx-auto mb-4">
+        <h2 class="text-gray-900 text-2xl font-medium title-font mb-5">Login</h2>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Email Address</label>
+            <input #email type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Password</label>
+            <input #password type="password" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <button (click)="login(email.value,password.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+        <a (click)="loginRegister()" class="mt-5 cursor-pointer">Don't have an account, Register</a>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="!loginToggle" class="text-gray-600 body-font">
+    <div class="container px-5 mx-auto my-auto flex flex-wrap items-center">
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col w-full mx-auto mb-4">
+        <h2 class="text-gray-900 text-2xl font-medium title-font mb-5">Register</h2>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Name</label>
+            <input #name type="text" id="name" name="name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Email Address</label>
+            <input #email type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Mobile Number</label>
+            <input #mobileNumber type="text" id="mobileNumber" name="mobileNumber" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Password</label>
+            <input #password type="password" id="password" name="password" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-600">Confirm Password</label>
+            <input #confirmPassword type="password" id="confirmPassword" name="confirmPassword" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+        <button (click)="register(name.value,email.value,mobileNumber.value,password.value,confirmPassword.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register</button>
+        <a (click)="loginRegister()" class="mt-5 cursor-pointer">Already have an account, Login</a>
+      </div>
+    </div>
+  </section>

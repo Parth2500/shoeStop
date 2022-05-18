@@ -1,4 +1,4 @@
-<header class="text-gray-600 body-font bg-slate-200 mx-0 lg:mx-5">
+<header class="text-gray-600 body-font bg-slate-200 mx-0 lg:mx-5 rounded-t-md">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <span class="text-xl font-semibold whitespace-nowrap">Users</span>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -6,7 +6,7 @@
     </nav>
   </div>
 </header>
-<div class="mx-0 lg:mx-5 overflow-auto">
+<div *ngIf="users" class="mx-0 lg:mx-5 overflow-auto">
     <table class="table-auto w-full text-left whitespace-no-wrap">
       <thead>
         <tr class="bg-gray-100">
@@ -38,4 +38,11 @@
       </tbody>
     </table>
 </div>
-
+<section *ngIf="!users" class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-400">No Users</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-400">To create user, Click <span class="font-bold text-gray-500">"Create"</span> on top-right corner.</p>
+    </div>
+  </div>
+</section>
