@@ -1,7 +1,10 @@
+<div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
+    <input type="text" id="footer-field" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="Search...." [(ngModel)]="filterTerm">
+  </div>
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-12 mx-auto">
         <div class="flex flex-wrap -m-4">
-            <div *ngFor="let product of products" [routerLink]="['../products/', product.id]"
+            <div *ngFor = "let product of products|filter:filterTerm"[routerLink]="['../products/', product.id]"
                 class="lg:w-1/5 md:w-1/2 p-4 w-full cursor-pointer hover:bg-slate-50 rounded-md">
                 <a class="block relative h-48 rounded overflow-hidden">
                     <img alt="ShoeStop" class="object-cover object-center w-full h-full block"

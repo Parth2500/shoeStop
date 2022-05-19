@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services';
 
@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services';
 export class ProductsPageComponent implements OnInit {
 
   products: Product[] | undefined;
+  filterTerm!: any;
 
   constructor(private productService: ProductService) { }
 
