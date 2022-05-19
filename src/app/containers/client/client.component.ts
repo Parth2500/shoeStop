@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.css']
 })
-export class ClientComponent {
+export class ClientComponent implements OnInit {
 
-  user:string = "";
+  userName: string | null = localStorage.getItem("userName");
 
-  constructor() { }
+  constructor(private userService:UserService ) {}
+
+  ngOnInit(): void {
+  }
+
+  logOut(){
+    localStorage.setItem("userName","");
+    localStorage.setItem("userId","");
+    localStorage.setItem("userLoggedIn","false");
+    window.location.reload();
+  }
 
 }

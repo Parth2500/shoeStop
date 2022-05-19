@@ -11,7 +11,6 @@
       <thead>
         <tr class="bg-gray-100">
           <th *ngFor="let title of titles" class="px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-bl">{{title}}</th>
-          <th class="px-2 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-bl">Change Status</th>
           <th></th>
         </tr>
       </thead>
@@ -25,11 +24,6 @@
           <td class="px-2 py-3">{{order.status}}</td>
           <td class="px-2 py-3">{{order.createdDate | date}}</td>
           <td class="px-2 py-3">{{order.deliveredDate | date}}</td>
-          <td class="py-3 px-2">
-            <select #statusDrop [disabled]="checkStatus(order.status)" (change)="put(order.id,order.userId,order.productId,order.quantity,order.addressId,statusDrop.value,order.createdDate,order.deliveredDate)" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              <option *ngFor="let s of status" [value]="s" [selected]="s == order.status">{{s}}</option>
-            </select>
-          </td>
           <td class="py-3 ">
             <button class="mr-4" [routerLink]="['edit/' , order.id]" class="text-gray-500 hover:text-gray-800 mr-10">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AddressListComponent, OrderListComponent, ProductCreateComponent, ProductListComponent, ProductEditComponent, UserListComponent, OrderEditComponent, AddressEditComponent, AddressCreateComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent, NotFoundComponent, LoginComponent } from './components';
+import { AddressListComponent, OrderListComponent, ProductCreateComponent, ProductListComponent, ProductEditComponent, UserListComponent, OrderEditComponent, AddressEditComponent, AddressCreateComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent, NotFoundComponent, LoginComponent, OrderPageComponent } from './components';
 import { AdminComponent, ClientComponent } from './containers';
 
 const routes: Routes = [
@@ -33,6 +33,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'products', pathMatch: 'full' },
     { path: 'products', component: ProductsPageComponent },
     { path: 'products/:id', component: ProductPageComponent },
+    { path: 'placeOrder/:id', component: OrderPageComponent },
     { path: 'loginUser', component: LoginComponent },
   ] },
   { path: '**', component: NotFoundComponent }

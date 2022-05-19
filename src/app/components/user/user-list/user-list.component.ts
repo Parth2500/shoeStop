@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { userTitles1 } from 'src/app/Constants';
+import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services';
 
 @Component({
@@ -7,18 +8,17 @@ import { UserService } from 'src/app/services';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent {
+export class UserListComponent implements OnInit {
 
-  users: any;
+  users: User[] | undefined;
   titles: string[] = userTitles1;
 
-  constructor(private userService: UserService) { 
-    this.get();
-  }
+  constructor(private userService: UserService) { }
 
-  get(){
+  ngOnInit(){
     this.userService.getUsers().subscribe(data => this.users = data);
   }
+
   delete(id:number){
     this.userService.deleteUser(id).subscribe();
     location.reload();

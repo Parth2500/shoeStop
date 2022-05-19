@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { User } from 'src/app/models/user';
+import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +13,23 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
-  getUsers(){
-    return this.http.get(this.connect);
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(this.connect);
   }
-  getUserById(id:number){
-    return this.http.get(this.connect+id);
+  getUserById(id:number): Observable<User>{
+    return this.http.get<User>(this.connect+id);
   }
-  setUser(a:string){
-    return this.http.post(this.connect, JSON.parse(a));
+  getUserByEmail(email:string): Observable<User>{
+    return this.http.get<User>(this.connect+"email/"+email);
   }
-  updateUser(id:number, a:string){
-    return this.http.put(this.connect+id, JSON.parse(a));
+  setUser(a:User){
+    return this.http.post(this.connect, a);
+  }
+  updateUser(id:number, a:User){
+    return this.http.put(this.connect+id, a);
   }
   deleteUser(id:number){
     return  this.http.delete(this.connect+id);
   }
+
 }

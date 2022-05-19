@@ -4,13 +4,14 @@
         <h2 class="text-gray-900 text-2xl font-medium title-font mb-5">Login</h2>
         <div class="relative mb-4">
             <label for="email" class="leading-7 text-sm text-gray-600">Email Address</label>
-            <input #email type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input #loginEmail type="email" id="loginEmail" name="loginEmail" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
         </div>
         <div class="relative mb-4">
             <label for="email" class="leading-7 text-sm text-gray-600">Password</label>
-            <input #password type="password" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input #loginPassword type="password" id="loginPassword" name="loginPassword" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
         </div>
-        <button (click)="login(email.value,password.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+        <button (click)="login(loginEmail.value,loginPassword.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Login</button>
+        <p *ngIf="passwordl" class="text-red-500">Password Doesn't Match!</p>
         <a (click)="loginRegister()" class="mt-5 cursor-pointer">Don't have an account, Register</a>
       </div>
     </div>
@@ -40,6 +41,7 @@
             <input #confirmPassword type="password" id="confirmPassword" name="confirmPassword" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
         </div>
         <button (click)="register(name.value,email.value,mobileNumber.value,password.value,confirmPassword.value)" class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register</button>
+        <p *ngIf="passwordr" class="text-red-500">Password Doesn't Match!</p>
         <a (click)="loginRegister()" class="mt-5 cursor-pointer">Already have an account, Login</a>
       </div>
     </div>

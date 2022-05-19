@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { orderTitles1, status } from 'src/app/Constants';
+import { Order } from 'src/app/models/order';
 import { OrderService } from 'src/app/services';
 
 @Component({
@@ -7,16 +8,13 @@ import { OrderService } from 'src/app/services';
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })
-export class OrderListComponent{
+export class OrderListComponent implements OnInit {
 
-  orders: any;
+  orders: Order[] | undefined;
   titles: string[] = orderTitles1;
   status: string[] = status;
-  jsonString: string = "";
   
-  constructor(private orderService:OrderService) {
-    this.get();
-  }
+  constructor(private orderService:OrderService) { }
 
   checkStatus(status: string): boolean{
     switch(status) {
@@ -31,16 +29,11 @@ export class OrderListComponent{
     }
   }
 
-  get(){
+  ngOnInit(){
     this.orderService.getOrders().subscribe(data => this.orders = data);
   }
   delete(id:number){
     this.orderService.deleteOrder(id).subscribe();
-    location.reload();
-  }
-  put(id:string,userId:string,productId:string,quantity:string,addressId:string,status:string,createdDate:string,deliveredDate:string){
-    this.jsonString = '{"id": '+id+',"userId":'+userId+',"productId":'+productId+',"quantity":'+quantity+',"addressId":'+addressId+',"status":"'+status+'","createdDate":"'+createdDate+'","deliveredDate":"'+deliveredDate+'"}';
-    this.orderService.updateOrder(Number.parseInt(id),this.jsonString).subscribe();
     location.reload();
   }
 

@@ -17,7 +17,7 @@
         </div>
         <div class="flex">
           <span class="title-font font-medium text-2xl text-gray-900">{{product.price | currency}}</span>
-          <button [routerLink]="" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
+          <button [routerLink]="user ? ['../../placeOrder/', product.id] : ['/Home/loginUser']" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
         </div>
       </div>
     </div>

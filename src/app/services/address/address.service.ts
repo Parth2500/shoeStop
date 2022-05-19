@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { Address } from 'src/app/models/address';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +13,20 @@ export class AddressService {
 
   constructor(private http:HttpClient) { }
 
-  getAddresses(){
-    return this.http.get(this.connect);
+  getAddresses(): Observable<Address[]>{
+    return this.http.get<Address[]>(this.connect);
   }
-  getAddressById(id:number){
-    return this.http.get(this.connect+id);
+  getAddressById(id:number): Observable<Address>{
+    return this.http.get<Address>(this.connect+id);
   }
-  setAddress(a:string){
-    return this.http.post(this.connect, JSON.parse(a));
+  getAddressByUserId(id:number): Observable<Address[]>{
+    return this.http.get<Address[]>(this.connect+"user/"+id);
   }
-  updateAddress(id:number, a:string){
-    return this.http.put(this.connect+id, JSON.parse(a));
+  setAddress(a:Address){
+    return this.http.post(this.connect, a);
+  }
+  updateAddress(id:number, a:Address){
+    return this.http.put(this.connect+id, a);
   }
   deleteAddress(id:number){
     return  this.http.delete(this.connect+id);

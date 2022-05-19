@@ -12,7 +12,7 @@ export class AdminComponent {
   loggedIn = false;
 
   constructor(private router: Router) {
-    if (localStorage.getItem("loggedIn") == "true"){
+    if (localStorage.getItem("AdminloggedIn") == "true"){
       this.loggedIn = true;
     }
   }
@@ -23,14 +23,14 @@ export class AdminComponent {
 
   login(value: string){
     if(value == environment.admin_password){
-      localStorage.setItem("loggedIn","true");
+      localStorage.setItem("AdminloggedIn","true");
       this.loggedIn = true;
     }
     this.router.navigate(['/Admin/']).then(() => { window.location.reload(); });
   }
 
   logOut(){
-    localStorage.setItem("loggedIn","false");
+    localStorage.setItem("AdminloggedIn","false");
       this.loggedIn = false;
   }
 

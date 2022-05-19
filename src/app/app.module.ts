@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OrderListComponent, ProductListComponent, UserListComponent, ProductEditComponent, AddressEditComponent, AddressCreateComponent, OrderEditComponent, ProductCreateComponent, AddressListComponent, OrderCreateComponent, UserCreateComponent, UserEditComponent, ProductsPageComponent, ProductPageComponent, LoginComponent, OrderPageComponent, AddressPageComponent, OrderHistoryComponent, NotFoundComponent } from './components';
 import { AdminComponent, ClientComponent } from './containers';
+import { AddresPipe } from './pipes/addres.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdminComponent, ClientComponent } from './containers';
     OrderPageComponent,
     AddressPageComponent,
     OrderHistoryComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddresPipe
   ],
   imports: [
     BrowserModule,

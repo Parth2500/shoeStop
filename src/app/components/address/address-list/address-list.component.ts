@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { addressTitle1 } from 'src/app/Constants';
+import { Address } from 'src/app/models/address';
 import { AddressService } from 'src/app/services';
 
 @Component({
@@ -7,18 +8,17 @@ import { AddressService } from 'src/app/services';
   templateUrl: './address-list.component.html',
   styleUrls: ['./address-list.component.css']
 })
-export class AddressListComponent {
+export class AddressListComponent implements OnInit {
 
-  addresses: any;
+  addresses: Address[] | undefined;
   titles: string[] = addressTitle1;
 
-  constructor(private addressService: AddressService) { 
-    this.get();
-  }
+  constructor(private addressService: AddressService) { }
 
-  get(){
+  ngOnInit(): void {
     this.addressService.getAddresses().subscribe(data => this.addresses = data);
   }
+
   delete(id:number){
     this.addressService.deleteAddress(id).subscribe();
     location.reload();

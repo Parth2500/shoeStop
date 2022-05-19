@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { addressTitle } from 'src/app/Constants';
+import { Address } from 'src/app/models/address';
 import { AddressService } from 'src/app/services';
 
 @Component({
@@ -8,34 +9,23 @@ import { AddressService } from 'src/app/services';
   templateUrl: './address-edit.component.html',
   styleUrls: ['./address-edit.component.css']
 })
-export class AddressEditComponent {
+export class AddressEditComponent implements OnInit {
 
   id = 0;
-  addressGet: any;
+  addressGet: Address = new Address(0,0,"","","","");
   titles: string[] = addressTitle;
-  jsonString: string = "";
 
-  constructor(private addressService: AddressService, private activatedRoute: ActivatedRoute, private router: Router) { 
+  constructor(private addressService: AddressService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
         this.id = params['id'];
       }
     );
-    this.get();
-  }
-
-  get(){
-    try{
-      this.addressService.getAddressById(this.id).subscribe(data => this.addressGet = data);
-      console.log(this.addressGet);
-    }catch(e){
-      console.log(e);
-    }
-    
+    this.addressService.getAddressById(this.id).subscribe(data => this.addressGet = data);
   }
 
   put(userId:string,address:string,city:string,state:string,zipcode:string){
-    this.jsonString = '{"id": '+this.id+',"userId":'+userId+',"address":"'+address+'","city":"'+city+'","state":"'+state+'","zipcode":"'+zipcode+'"}';
-    this.addressService.updateAddress(this.id,this.jsonString).subscribe();
+    this.addressService.updateAddress(this.id,new Address(this.addressGet.id,Number.parseInt(userId),address,city,state,zipcode)).subscribe();
     this.router.navigate(['/Admin/address/']).then(() => { window.location.reload(); });
   }
 
